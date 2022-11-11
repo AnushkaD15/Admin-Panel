@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\trialAPI;
 use App\Http\Controllers\WardsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ComplaintDetailsController;
+use App\Http\Controllers\AuthorityController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,12 @@ Route::get("Userdata", [UsersController::class, 'getUserData']);
 Route::get("Warddata", [WardsController::class, 'getWardData']);
 Route::get("SpecificUserdata", [UsersController::class, 'getSpecificUserByUserID']);
 Route::get("SpecifiedWardDetails", [WardsController::class, 'getSpecifiedWardDetailsByWID']);
+Route::get("AuthorityData", [AuthorityController::class, 'getAuthorityData']);
+//
 
 Route::post("addUser",[UsersController::class, 'addUser']);
 Route::post("addWards",[WardsController::class, 'addWard']);
+Route::post("addComplaintDetails",[ComplaintDetailsController::class, 'addComplaintDetails']);
+Route::post("addAuthority",[AuthorityController::class, 'addAuthority']);
+
+Route::post("updateUserDetails",[UsersController::class, 'updateUser']);

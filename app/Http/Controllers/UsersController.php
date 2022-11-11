@@ -12,11 +12,12 @@ class UsersController extends Controller
     {
         $users = new Users;
         $users-> uid = $req ->uid;
-        $users-> uname= $req ->uname;
+        $users-> uname= $req ->uname;        
         $users-> phone= $req ->phone;
         $users-> address= $req ->address;
         $users-> addharno= $req ->addharno;
         $users-> wid= $req ->wid;
+        $users-> password= $req ->password;
         $result = $users->save();
 
         if($result)
@@ -25,9 +26,11 @@ class UsersController extends Controller
         }
         else
         {
-            return ["result"=>'Operation failed'];
+            return ["result"=>'Operation failed.'];
         }
     }
+
+    //DB::table('users')->increment('votes');
 
 
     public function getUserData(){
@@ -37,5 +40,9 @@ class UsersController extends Controller
     public function getSpecificUserByUserID(){
         $users = DB::table('users')->where('uid', 1)->first();
         return $users;
+    }
+
+    public function updateUser(){
+        $users = DB::update('update student set name = ?, phone = ?, address=?,  where id = ?',["uname","uid"]);
     }
 }
