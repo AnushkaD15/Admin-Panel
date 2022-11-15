@@ -32,10 +32,10 @@ class WardsController extends Controller
     }
 
     public function getSpecifiedWardDetailsByWID(){
-        $wards = DB::table('wards')
-                ->select('*', DB::table('wards'))
-                ->orderByRaw('created_at DESC')
-                ->get();
+        $wards = DB::table('wards')->where('uid', $req->wid);
         return $wards;
     }
+
+  
+
 }

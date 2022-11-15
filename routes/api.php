@@ -7,6 +7,9 @@ use App\Http\Controllers\WardsController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ComplaintDetailsController;
 use App\Http\Controllers\AuthorityController;
+use App\Http\Controllers\AuthorityComplaintController;
+use App\Http\Controllers\AuthorityWardsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -28,13 +31,15 @@ Route::get("data", [trialAPI::class, 'getData']);
 Route::get("Userdata", [UsersController::class, 'getUserData']);
 Route::get("Warddata", [WardsController::class, 'getWardData']);
 Route::get("SpecificUserdata", [UsersController::class, 'getSpecificUserByUserID']);
-Route::get("SpecifiedWardDetails", [WardsController::class, 'getSpecifiedWardDetailsByWID']);
+Route::get("SpecifiedWardDetails/{wid}", [WardsController::class, 'getSpecifiedWardDetailsByWID']);
 Route::get("AuthorityData", [AuthorityController::class, 'getAuthorityData']);
-//
+Route::get("getAuthorityByCIDAndWID/{cid}/{wid}", [AuthorityComplaintController::class, 'getAuthorityByCIDAndWID']);
 
 Route::post("addUser",[UsersController::class, 'addUser']);
 Route::post("addWards",[WardsController::class, 'addWard']);
 Route::post("addComplaintDetails",[ComplaintDetailsController::class, 'addComplaintDetails']);
 Route::post("addAuthority",[AuthorityController::class, 'addAuthority']);
 
-Route::post("updateUserDetails",[UsersController::class, 'updateUser']);
+Route::post("updateUserDetails/{uid}",[UsersController::class, 'updateUser']);
+
+Route::get("getAuthority/{aid}", [AuthorityController::class, 'getAuthority']);

@@ -31,7 +31,15 @@ class AuthorityController extends Controller
         }
     }
 
+    //get data from authority by id
+    public function getAuthority($id)
+    {
+        return Authority::find($id);
+    }
+
     public function getAuthorityData(){
         return response()->json(Authority::all(), 200);
     }
+    
 }
+

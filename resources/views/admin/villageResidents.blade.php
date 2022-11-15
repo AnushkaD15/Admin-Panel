@@ -1,76 +1,80 @@
-<!-- @extends('layout.master')  
-@section('content')  
-<form method="post" action="{{ route('users.store') }}">  
-   @csrf     
-          <div class="form-group">      
-              <label for="first_name">First Name:</label><br/><br/>  
-              <input type="text" class="form-control" name="first_name"/><br/><br/>  
-          </div>  
-<div class="form-group">      
-<label for="first_name">Last Name:</label><br/><br/>  
-              <input type="text" class="form-control" name="last_name"/><br/><br/>  
-          </div>  
-<div class="form-group">      
-              <label for="gender">Gender:</label><br/><br/>  
-              <input type="text" class="form-control" name="gender"/><br/><br/>  
-          </div>  
-<div class="form-group">      
-              <label for="qualifications">Qualifications:</label><br/><br/>  
-              <input type="text" class="form-control" name="qualifications"/><br/><br/>  
-          </div>  
-<br/>  
-<button type="submit" class="btn-btn" >Insert</button>  
-</form>  
-@endsection   -->
+<section class="intro">
+  <div class="bg-image h-100" style="background-color: #f5f7fa;">
+    <div class="mask d-flex align-items-center h-100">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body p-0">
+                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
+                  <table class="table table-striped mb-0">
+                    <thead style="background-color: #0abef0;">
+                      <tr>
+                        <th scope="col">User ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Addhar No.</th>
+                        <th scope="col">Address</th>
+                        <th scope="col">Ward</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($users as $key => $data)
+                        <tr>    
+                        <th>{{$data->uid}}</th>
+                        <th>{{$data->uname}}</th>
+                        <th>{{$data->phone}}</th>
+                        <th>{{$data->address}}</th> 
+                        <th>{{$data->addharno}}</th>
+                        <th>{{$data->ward}}</th>                 
+                        </tr>
+                    @endforeach
+                    
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 
-@extends('layouts.master')
 
-@section('content')
+<!-- @foreach ($users as $key => $data )
+{{ auth()->data()->username }}
 
-<div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">E-Complaints Grievance Portal</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">New Complaints</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">In Progress Complaints</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>                           
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Completed Complaints</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Pending Complaints</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+$server_name = "localhost";
+$username = "root";
+$password = "";
+$db_name = "adminpanel";
 
-@endsection
+$conn =  new mysqli();
+
+$conn->new mysqli($server_name, $username, $password, $db_name);
+
+if($conn -> connect_error){
+    die("Connection failed: " . $conn->connect_error);
+}
+
+$query = "SELECT uid, uname, phone from users;";
+
+$result = $conn->query($query);
+
+if($result->num_rows > 0){
+    while($row = $result->fetch_assoc()){
+        echo "user id: " . $row["uid"] . " - Name: " . $row["uname"] . "Phone no: " . $row["phone"] . "<br>";
+    }
+} else {
+    echo "0 results";
+}
+
+$conn->close();
+
+
+@endforeach
+?> -->

@@ -42,7 +42,22 @@ class UsersController extends Controller
         return $users;
     }
 
-    public function updateUser(){
-        $users = DB::update('update student set name = ?, phone = ?, address=?,  where id = ?',["uname","uid"]);
+    public function updateUser($uid, Request $req){
+        $users = DB::table('users')->where('uid', $req->uid)->update(['uname' => $req->uname,'phone' =>$req->phone, 'address' => $req ->address, 'addharno' => $req ->addharno,'wid' => $req ->wid]);
+        if($users)
+        {
+            return ["result"=>'Data has been saved.'];
+        }
+        else
+        {
+            return ["result"=>'Operation failed.'];
+        }
     }
+
+    // write a function to increment uid
+    // public function incrementUID(){
+    //     $users = DB::table('users')->increment('uid');
+    //     return $users;
+    // }
+
 }
