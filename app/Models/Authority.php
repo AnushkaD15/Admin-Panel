@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Authority extends Model
 {
     use HasFactory;
-    public $table = "authority";
+    protected $table = "authority";
+    protected $fillable = ['aname', 'phone', 'address','addharno','designation', 'password'];
     public $timestamps = "false";
 }

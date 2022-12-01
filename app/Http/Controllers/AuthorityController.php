@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use App\Models\Authority;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\View;
 
 class AuthorityController extends Controller
 {
@@ -39,6 +40,17 @@ class AuthorityController extends Controller
 
     public function getAuthorityData(){
         return response()->json(Authority::all(), 200);
+    }
+
+    public function authorityRecords()
+    {
+        $authority = DB::table('authority')->get();
+        return view('authorityRecords',['authority'=>$authority]);
+    }
+
+    public function index()
+    {
+        return view('admin.addAuthority');
     }
     
 }

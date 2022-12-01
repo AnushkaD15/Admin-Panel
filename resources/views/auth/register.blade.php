@@ -1,77 +1,76 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>admin-registration</title>
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Muli'><link rel="stylesheet" href="./style1.css">
 
-@section('content')
+</head>
+<!-- style="background-color:lightgrey;" -->
+<body>
+<!-- partial:index.partial.html -->
+<div class="pt-5">
+  <h1 class="text-center">Admin Registration</h1>
+  <br>
+  
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="row">
+                    <div class="col-md-5 mx-auto">
+                        <div class="card card-body" style="box-shadow: 0 2px 8px black">
+                                                    
+                            <form id="submitForm" action="/login" method="post" data-parsley-validate="" data-parsley-errors-messages-disabled="true" novalidate="" _lpchecked="1"><input type="hidden" name="_csrf" value="7635eb83-1f95-4b32-8788-abec2724a9a4">
+                                <div class="form-group required">
+                                    <lSabel for="username">Full Name </lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                </div>     
+                            
+                                <div class="form-group required">
+                                    <lSabel for="phome">Phone Number</lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                </div> 
+                                
+                                <div class="form-group required">
+                                    <lSabel for="address">Address</lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                </div> 
+                                
+                                <div class="form-group required">
+                                    <lSabel for="aadhar no">Aadhaar Number</lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                </div> 
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+                                <div>
+                                    <lSabel for="designation">Designation</lSabel>
+                                        <select class="form-control" id="designation" name="designation">
+                                            <option>Choose from below...</option>
+                                            <option value="1">Village Head/ Sarpanch</option>
+                                            <option value="2">Village Sub-head/ Upa-sarpanch</option>
+                                            <option value="3">Village Member/ Gram Sevak</option>
+                                        </select>
+                                    <br>
+                                </div> 
 
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <div class="form-group required">
+                                    <lSabel for="password">Password</lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                </div> 
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                                <div class="form-group required">
+                                    <lSabel for="password">Confirm Password</lSabel>
+                                    <input type="text" class="form-control text-lowercase" id="username" required="" name="username" value="">
+                                </div> 
+                                                               
+                                <div class="form-group pt-1">
+                                    <button class="btn btn-primary btn-block" type="submit">Register</button>
+                                </div>
+                            </form>
                         </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
 </div>
-@endsection
+<!-- partial -->
+  
+</body>
+</html>

@@ -12,7 +12,7 @@
                                 <div class="card bg-primary text-white mb-4">
                                     <div class="card-body">New Complaints</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="http://127.0.0.1:8000/complaints/newComplaints">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -21,7 +21,7 @@
                                 <div class="card bg-warning text-white mb-4">
                                     <div class="card-body">In Progress Complaints</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="http://127.0.0.1:8000/complaints/inProgressComplaints">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -30,7 +30,7 @@
                                 <div class="card bg-success text-white mb-4">
                                     <div class="card-body">Completed Complaints</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="http://127.0.0.1:8000/complaints/completedComplaints">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                 <div class="card bg-danger text-white mb-4">
                                     <div class="card-body">Pending Complaints</div>
                                     <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <a class="small text-white stretched-link" href="http://127.0.0.1:8000/complaints/pendingComplaints">View Details</a>
                                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                                     </div>
                                 </div>

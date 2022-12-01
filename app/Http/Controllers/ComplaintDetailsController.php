@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\ComplaintDetails;
+use App\Models\AuthorityComplaint;
+use Illuminate\Support\Facades\View;
 
 class ComplaintDetailsController extends Controller
 {
@@ -33,4 +35,19 @@ class ComplaintDetailsController extends Controller
             return ["result"=>'Operation failed.'];
         }
     }
+
+    //get complaints details by aid 
+    public function getComplaintDetailsByAID(Request $req){
+        $complaintsDetails = DB::table('complaintsdetail')
+        ->join ('authoritycomplaint', 'authoritycomplaint.cid', '=', 'complaintdetails.cid')        
+        ->where('aid', $req->aid)->get();
+        return $complaintsDetails;
+    }
+    
+    public function ComplaintRecords()
+    {
+        $complaintsDetails = DB::table('complaintsdetail')->get();
+        return view('complaintRecords',['complaintsDetails'=>$complaintsDetails]);
+    }
+    
 }

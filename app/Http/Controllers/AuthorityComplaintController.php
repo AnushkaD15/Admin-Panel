@@ -15,7 +15,7 @@ class AuthorityComplaintController extends Controller
         $authoritycomplaint = DB::table('authoritycomplaint')
         -> join ('authoritywards', 'authoritywards.aid', '=', 'authoritycomplaint.aid')        
         -> join ('authority', 'authority.aid', '=', 'authoritycomplaint.aid')
-        ->where('cid', $req->cid)->where('wid', $req->wid)->first();
+        ->where('cid', $req->cid)->where('wid', $req->wid)->get();
         return $authoritycomplaint;
     }
 }

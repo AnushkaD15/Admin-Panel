@@ -34,6 +34,7 @@ Route::get("SpecificUserdata", [UsersController::class, 'getSpecificUserByUserID
 Route::get("SpecifiedWardDetails/{wid}", [WardsController::class, 'getSpecifiedWardDetailsByWID']);
 Route::get("AuthorityData", [AuthorityController::class, 'getAuthorityData']);
 Route::get("getAuthorityByCIDAndWID/{cid}/{wid}", [AuthorityComplaintController::class, 'getAuthorityByCIDAndWID']);
+Route::get("getComplaintDetailsByAID/{aid}", [ComplaintDetailsController::class, 'getComplaintDetailsByAID']);
 
 Route::post("addUser",[UsersController::class, 'addUser']);
 Route::post("addWards",[WardsController::class, 'addWard']);

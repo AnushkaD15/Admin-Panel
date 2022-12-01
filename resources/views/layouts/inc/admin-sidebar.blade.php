@@ -2,20 +2,24 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <div class="sb-sidenav-menu-heading">Main</div>
+                            <a class="nav-link" href="http://127.0.0.1:8000/admin/dashboard">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
                            
                             <div class="sb-sidenav-menu-heading">Data</div>
-                            <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
-                                Village Residents
+                            <a class="nav-link"  href="http://127.0.0.1:8000/villageResidents">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                            Residents Records 
                             </a>
                             
+                            <a class="nav-link" href="http://127.0.0.1:8000/authorityRecords">
+                            <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Authority Records
+                            </a>
                 
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="http://127.0.0.1:8000/complaintRecords">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
                                 Complaint Records
                             </a>
@@ -40,20 +44,24 @@
                                     </div>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Stats</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
-                            <a class="nav-link" href="tables.html">
+                            <div class="sb-sidenav-menu-heading">Actions</div>
+                            <a class="nav-link" href="http://127.0.0.1:8000/admin/addWards">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Add Wards
+                            </a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/admin/addAuthority">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Add Authority
+                            </a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/admin/addComplaintType">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Add Complaint Type
                             </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        User
+                        Admin
                     </div>
                 </nav>
             </div>

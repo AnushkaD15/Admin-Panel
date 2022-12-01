@@ -32,7 +32,6 @@ class UsersController extends Controller
 
     //DB::table('users')->increment('votes');
 
-
     public function getUserData(){
         return response()->json(Users::all(), 200);
     }

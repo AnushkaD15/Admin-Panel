@@ -1,3 +1,4 @@
+
 <section class="intro">
   <div class="bg-image h-100" style="background-color: #f5f7fa;">
     <div class="mask d-flex align-items-center h-100">
@@ -19,16 +20,18 @@
                       </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $key => $data)
+                     @foreach ( $users as $us)
                         <tr>    
-                        <th>{{$data->uid}}</th>
-                        <th>{{$data->uname}}</th>
-                        <th>{{$data->phone}}</th>
-                        <th>{{$data->address}}</th> 
-                        <th>{{$data->addharno}}</th>
-                        <th>{{$data->ward}}</th>                 
+                         <th>{{ $us->uid }}</th>
+                        <th>{{ $us ->uname }}</th>
+                     
+                         <th>{{$us->phone}}</th>
+                        <th>{{$us->address}}</th> 
+                        <th>{{$us->addharno}}</th>
+                        <th>{{$us->wid}}</th>                  
                         </tr>
-                    @endforeach
+                           @endforeach
+                 
                     
                     </tbody>
                   </table>
@@ -45,36 +48,6 @@
 
 
 
-<!-- @foreach ($users as $key => $data )
-{{ auth()->data()->username }}
-
-$server_name = "localhost";
-$username = "root";
-$password = "";
-$db_name = "adminpanel";
-
-$conn =  new mysqli();
-
-$conn->new mysqli($server_name, $username, $password, $db_name);
-
-if($conn -> connect_error){
-    die("Connection failed: " . $conn->connect_error);
-}
-
-$query = "SELECT uid, uname, phone from users;";
-
-$result = $conn->query($query);
-
-if($result->num_rows > 0){
-    while($row = $result->fetch_assoc()){
-        echo "user id: " . $row["uid"] . " - Name: " . $row["uname"] . "Phone no: " . $row["phone"] . "<br>";
-    }
-} else {
-    echo "0 results";
-}
-
-$conn->close();
 
 
-@endforeach
-?> -->
+

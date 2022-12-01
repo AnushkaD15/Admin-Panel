@@ -36,6 +36,9 @@ class WardsController extends Controller
         return $wards;
     }
 
-  
+    public function index()
+    {
+        return view('admin.addWards');
+    }
 
 }
