@@ -9,6 +9,6 @@ use App\Models\Authority;
 class LoginController extends Controller
 {
     public function index(){
-        return view('auth.register');
+        return view('auth.login');
     }
 }
