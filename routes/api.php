@@ -37,7 +37,7 @@ Route::get("getAuthorityByCIDAndWID/{cid}/{wid}", [AuthorityComplaintController:
 Route::get("getComplaintDetailsByAID/{aid}", [ComplaintDetailsController::class, 'getComplaintDetailsByAID']);
 
 Route::post("addUser",[UsersController::class, 'addUser']);
-Route::post("addWards",[WardsController::class, 'addWard']);
+//Route::post("addWards",[WardsController::class, 'addWard']);
 Route::post("addComplaintDetails",[ComplaintDetailsController::class, 'addComplaintDetails']);
 Route::post("addAuthority",[AuthorityController::class, 'addAuthority']);
 

@@ -5,26 +5,47 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Wards;
+use Illuminate\Support\Facades\View;
 
 class WardsController extends Controller
 {
-    //
-    function addWard(Request $req)
-    {
+    //add data in database 
+    public function addWard(Request $request){
+        $request ->validate(
+            [
+                'ward'=>'required',
+                'description'=>'required'
+            ]
+        );
         $wards = new Wards;
-        $wards-> wid = $req ->wid;
-        $wards-> ward = $req ->ward;
-        $result = $wards->save();
+        $wards->ward = $request->input('ward');
+        $wards->description = $request->input('description'); 
+        $wards->save();
 
-        if($result)
-        {
-            return ["result"=>'Data has been saved.'];
-        }
-        else
-        {
-            return ["result"=>'Operation failed'];
-        }
+        return redirect()->route('wards.index')->with('success', 'Ward  Added successfully.');
+    
     }
+
+    //
+    // function addWard(Request $req)
+    // {
+    //     $wards = new Wards;
+    //     $wid = $req ->input('ward');
+    //     $ward = $req ->input('description');
+    //     // $result = $wards->save();
+    //     $isInsertSuccess = Wards::insert(['ward'=>$wid ,
+    //                                     'description'=>$ward
+    //                                 ]);
+
+    //     if($isInsertSuccess) 
+    //     {
+    //         return("Data Saved.");
+    //     }
+    //     else
+    //     {
+    //         return "Operation Failed.";
+    //     }
+    // }
 
     public function getWardData(){
         

@@ -63,6 +63,8 @@ Route::prefix('complaints')-> group(function(){
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::post("addWard",[WardsController::class, 'addWard']);
+
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 
 Route::prefix('register')-> group(function(){
