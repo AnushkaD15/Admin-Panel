@@ -7,7 +7,19 @@
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">E-Complaints Grievance Portal</li>
                         </ol>
-                        <form>
+
+                        @if (\Session::has('success'))
+                        <div class= "alert alert-success">
+                            <p> 
+                                {{\Session::get('success') }}
+                            </p>
+                        </div>
+                            
+                        @endif
+
+                        <form method="post"  action="{{ url ('addComplaintType')}}" enctype="multipart/form-data">
+                        {{ csrf_field()}}
+                        
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputComplaintType">Complaint Type</label>
@@ -38,7 +50,7 @@
                         
                           <br>
                             <div>
-                            <button type="add" class="btn btn-primary" style="">Add</button>
+                            <button type="submit" class="btn btn-primary" style="">Add</button>
                             </div>
                     </form>   
 

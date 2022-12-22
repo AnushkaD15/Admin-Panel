@@ -4,6 +4,8 @@
   <div class="bg-image h-100" style="background-color: #f5f7fa;">
     <div class="mask d-flex align-items-center h-100">
       <div class="container">
+
+      <h1 class="mt-4">New Complaints</h1>
         <div class="row justify-content-center">
           <div class="col-12">
             <div class="card">
@@ -16,9 +18,8 @@
                         <th scope="col">Complaint </th>
                         <th scope="col">Ward</th>
                         <th scope="col">Complaint Description</th>
-                        <th scope="col">Complaint Registration Date</th>
-                        
-                        <th scope="col">To Be Completed By</th>
+                        <th scope="col">Complaint Registration Date</th>                        
+                        <th scope="col">To Be Completed In</th>
                         <th scope="col">Date of Update By Authority</th>
                       </tr>
                     </thead>

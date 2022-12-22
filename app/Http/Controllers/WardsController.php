@@ -10,23 +10,24 @@ use Illuminate\Support\Facades\View;
 class WardsController extends Controller
 {
     //add data in database 
-    public function addWard(Request $request){
-        $request ->validate(
-            [
-                'ward'=>'required',
-                'description'=>'required'
-            ]
-        );
-        $wards = new Wards;
-        $wards->ward = $request->input('ward');
-        $wards->description = $request->input('description'); 
-        $wards->save();
+    // public function addWard(Request $request){
+    //     $request ->validate(
+    //         [
+    //             'ward'=>'required',
+    //             'description'=>'required'
+    //         ]
+    //     );
+    //     $wards = new Wards;
+    //     $wards->ward = $request->input('ward');
+    //     $wards->description = $request->input('description'); 
+    //     $data=array('ward'=>$ward,"description"=>$description);
+    //     DB::table('wards')->insert($data);    
 
-        return redirect()->route('wards.index')->with('success', 'Ward  Added successfully.');
+    //     return redirect()->route('wards.index')->with('success', 'Ward  Added successfully.');
     
-    }
+    // }
 
-    //
+    
     // function addWard(Request $req)
     // {
     //     $wards = new Wards;
@@ -39,13 +40,30 @@ class WardsController extends Controller
 
     //     if($isInsertSuccess) 
     //     {
-    //         return("Data Saved.");
+    //         echo 'Data saved.';
     //     }
     //     else
     //     {
-    //         return "Operation Failed.";
+    //         echo 'Operation Failed.';
     //     }
     // }
+
+    public function  addWard(Request $request)
+    {
+        echo "6, ";
+        die();
+        $this -> validate($request, [
+                'wid' => 'required',
+                'ward' => 'required'
+        ]);
+        $ward =  new Wards([
+            'wid' => $request->get('required'),
+            'ward' => $request->get('required')
+        ]);
+        $ward -> save();
+        return redirect()->route('wards.index')->with('success', 'Ward  Added successfully.');
+
+    } 
 
     public function getWardData(){
         

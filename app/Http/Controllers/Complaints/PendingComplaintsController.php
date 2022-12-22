@@ -12,7 +12,7 @@ class PendingComplaintsController extends Controller
     public function index2()
     {
         $pcmp = DB::table('complaintsdetail')
-                        ->where('astatus', '=', 'pending')
+                        ->where('astatus', '=', 'Ongoing')
                         ->where('uack', '=', 'pending')
                         ->get();
                         

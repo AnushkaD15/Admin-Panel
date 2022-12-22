@@ -6,16 +6,18 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\View;
+use Carbon\Carbon;
+
 
 class NewComplaintsController extends Controller
 {
     public function index()
     {
-        $date = date('d-m-Y');
-       
+        $date = Carbon::today()->format('Y-m-d');
 
         $dcmp = DB::table('complaintsdetail')
-                        ->where('registereddate', '=', $date)
+                        ->whereDate('registereddate', '=', $date)
+                        ->where("astatus", "=", "Registered")
                         ->get();
                        
         

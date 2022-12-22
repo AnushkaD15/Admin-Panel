@@ -15,7 +15,7 @@ class InProgressComplaintsController extends Controller
 
         
         $inprgs = DB::table('complaintsdetail')
-                        ->where('astatus', '=','pending')
+                        ->where('astatus', '=','Ongoing')
                         -> get();
                         
         

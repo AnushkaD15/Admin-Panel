@@ -3,6 +3,7 @@
   <div class="bg-image h-100" style="background-color: #f5f7fa;">
     <div class="mask d-flex align-items-center h-100">
       <div class="container">
+      <h1 class="mt-4">Village Residents Record</h1>
         <div class="row justify-content-center">
           <div class="col-12">
             <div class="card">

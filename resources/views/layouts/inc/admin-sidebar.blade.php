@@ -57,6 +57,10 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Add Complaint Type
                             </a>
+                            <a class="nav-link" href="http://127.0.0.1:8000/admin/assignWardsToAuthority">
+                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+                                Assign Wards to Authority
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

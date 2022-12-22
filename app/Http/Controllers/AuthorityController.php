@@ -20,6 +20,7 @@ class AuthorityController extends Controller
         $authority-> designation= $req ->designation;
         $authority-> workfrom= $req ->workfrom;
         $authority-> workstill= $req ->workstill;
+        $authority-> alevel= $req ->alevel;
         $result = $authority->save();
 
         if($result)

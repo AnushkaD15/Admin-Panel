@@ -8,7 +8,18 @@
                             <li class="breadcrumb-item active">E-Complaints Grievance Portal</li>
                         </ol>
 
-                        <form>
+                        @if (\Session::has('success'))
+                        <div class= "alert alert-success">
+                            <p> 
+                                {{\Session::get('success') }}
+                            </p>
+                        </div>
+                            
+                        @endif
+
+                        <form method="post"  action="{{ url ('addAuthority')}}" enctype="multipart/form-data">
+                        {{ csrf_field()}}
+                        
                         <div class="form-row">
                             <div class="form-group col-md-8">
                             <label for="inputName4">Name</label>
@@ -31,74 +42,29 @@
                             <input type="text" class="form-control" id="inputAadhaarNo" placeholder="enter aadhaar no.">
                         </div>
                         <br>
-                        <!-- <div class="dropdown">
-                            <label for="inputDesignation">Designation</label>
-                                <li class="dropdown-header">Choose from..</li>
-                                <li>Gram Sevak</li>
-                                <li>Sarpanch</li>
-                                <li>Upa-sarpanch</li>
-                                <li>Ward Members</li>
-                            </ul>
-                        </div> -->
-
-                        <!-- <div class="form-group col-md-8>
-                            <label for="inputDesignation">Designation</label>
-                            <div class="dropdown">
-                                <a  class="dropdown-toggle" data-bs-toggle="dropdown">Choose from..</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="#"></a>
-                                    <a class="dropdown-item" href="#"></a>
-                                    <a class="dropdown-item" href="#"></a>
-                                    <a class="dropdown-item" href="#"></a>
-                                </div>
-                                    
+                        
+                            <div class="form-group col-md-8">
+                                <label for="inputDesignation">Designation</label>
+                                <select name="designation" class="form-control" id="inputDesignation">
+                                    <option value="">Select designation</option>
+                                    <option value="">Sarpanch</option>
+                                    <option value="">Upa-Sarpanch</option>
+                                    <option value="">Gram Sevak</option>
+                                    <option value="">Ward Member</option>
+                                </select>
                             </div>
-                        </div> -->
 
-                        <!-- <div>
-                                <div>
-                                <label for="inputstatus">Designation</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                                    <label class="form-check-label" for="flexRadioDefault1">
-                                    Gram Sevak
-                                    </label>
-                                    </div>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2">
-                                    <label class="form-check-label" for="flexRadioDefault2">
-                                    Sarpanch
-                                    </label>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3">
-                                    <label class="form-check-label" for="flexRadioDefault3">
-                                    Upa-sarpanch
-                                    </label>
-                                    <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault4">
-                                    <label class="form-check-label" for="flexRadioDefault4">
-                                    Ward Members
-                                    </label>
-                                </div>
-                            </div> -->
-                            <div>
-                                <label for="inputdesignation">Designation</label>
-                                </div>
-                            <div class="dropdown mt-3">
-                                <button class="btn btn-info dropdown-toggle" type="button" id="book-dropdown" data-bs-toggle="dropdown">
-                                    Choose from..
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="book-dropdown">
-                                    <li><a class="dropdown-item" href="#">Gram Sevak</a></li>
-                                    <li><a class="dropdown-item" href="#">Sarpanch</a></li>
-                                    <li><a class="dropdown-item" href="#">Upa-sarpanch</a></li>
-                                    <li><a class="dropdown-item" href="#">Ward Members</a></li>
-                                </ul> 
+                            <br>
 
+                            <div class="form-group col-md-8">
+                                <label for="inputALevel">Authority Level</label>
+                                <select name="alevel" class="form-control" id="inputALevel">
+                                    <option value="">Select authority level</option>
+                                    <option value="">3</option>
+                                    <option value="">2</option>
+                                    <option value="">1</option>
+                                </select>
                             </div>
-                            
-
                             <br>
                         <div class="form-group col-md-8 ">
                             <label for="inputDate">Works From</label>
@@ -132,7 +98,7 @@
                             </div>
                             <br>
                         <div class=" align-center ml-auto">
-                            <button type="add" class="btn btn-primary" >Add</button>
+                            <button type="submit" class="btn btn-primary" >Add</button>
                         </div>
                     </form>
                 </div>
