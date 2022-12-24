@@ -1,29 +1,34 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
-<section class="intro">
-  <div class="bg-image h-100" style="background-color: #f5f7fa;">
-    <div class="mask d-flex align-items-center h-100">
-      <div class="container">
-      <h1 class="mt-4">Authority Record</h1>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body p-0">
-                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
-                  <table class="table table-striped mb-0">
-                    <thead style="background-color: #0abef0;">
-                      <tr>
-                        <th scope="col">Authority ID</th>
-                        <th scope="col">Authority Name</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Address</th>
-                        <th scope="col">Aaddhar No.</th>
-                        <th scope="col">Designation</th>
-                        <th scope="col">Date of Joining</th>
-                        <th scope="col">Works Still</th>
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+</style>
+
+
+<div class="container mt-5 px-2">
+  <h2>Authority Record</h2>
+    
+    <div class="table-responsive">
+    <table class="table table-responsive">
+        
+      <thead style="background-color: #0abef0;">
+            
+		<tr>
+                        <th scope="col" width="2%">Authority ID</th>
+                        <th scope="col" width="5%">Authority Name</th>
+                        <th scope="col" width="5%">Phone</th>
+                        <th scope="col" width="10%">Address</th>
+                        <th scope="col" width="5%">Aaddhar No.</th>
+                        <th scope="col" width="5%">Designation</th>
+                        <th scope="col" width="5%">Date of Joining</th>
+                        <th scope="col" width="5%">Works Still</th>
                       </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ( $authority as $aut)
+      </thead>
+      <tbody>
+           @foreach ( $authority as $aut)
                         <tr>    
                         <th>{{$aut->aid }}</th>
                         <th>{{$aut->aname }}</th>
@@ -35,23 +40,9 @@
                         <th>{{$aut->workstill}}</th>               
                         </tr>
                     @endforeach
-                 
-                    
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </tbody>
+    </table>
+  
   </div>
-</section>
-
-
-
-
-
-
-
+    
+</div>

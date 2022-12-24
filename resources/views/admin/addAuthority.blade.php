@@ -51,6 +51,7 @@
                                     <option value="">Upa-Sarpanch</option>
                                     <option value="">Gram Sevak</option>
                                     <option value="">Ward Member</option>
+                                    <option value="">Kotwal</option>
                                 </select>
                             </div>
 

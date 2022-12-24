@@ -15,6 +15,8 @@ class InProgressComplaintsController extends Controller
 
         
         $inprgs = DB::table('complaintsdetail')
+                        ->join('userss', 'userss.uid', '=', 'complaintsdetail.uid')
+                        ->join('wards', 'wards.wid', '=', 'complaintsdetail.wid')
                         ->where('astatus', '=','Ongoing')
                         -> get();
                         

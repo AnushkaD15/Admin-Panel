@@ -16,6 +16,8 @@ class NewComplaintsController extends Controller
         $date = Carbon::today()->format('Y-m-d');
 
         $dcmp = DB::table('complaintsdetail')
+                        ->join('userss', 'userss.uid', '=', 'complaintsdetail.uid')
+                        ->join('wards', 'wards.wid', '=', 'complaintsdetail.wid')
                         ->whereDate('registereddate', '=', $date)
                         ->where("astatus", "=", "Registered")
                         ->get();

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2022 at 09:28 AM
+-- Generation Time: Dec 22, 2022 at 11:52 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -34,19 +34,20 @@ CREATE TABLE `authority` (
   `address` varchar(100) DEFAULT NULL,
   `addharno` varchar(12) DEFAULT NULL,
   `designation` varchar(20) DEFAULT NULL,
-  `workfrom` varchar(10) DEFAULT NULL,
+  `workfrom` date DEFAULT NULL,
   `workstill` varchar(10) DEFAULT NULL,
-  `password` varchar(256) DEFAULT NULL
+  `password` varchar(256) DEFAULT NULL,
+  `alevel` int(11) NOT NULL DEFAULT 3
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `authority`
 --
 
-INSERT INTO `authority` (`aid`, `aname`, `phone`, `address`, `addharno`, `designation`, `workfrom`, `workstill`, `password`) VALUES
-(1, 'S P Pote', '9755521222', 'RSP nagar', '467916482763', 'Gram sevak', '22-09-2022', 'no', '123'),
-(2, 'Anushka', '8542479843', 'rk colony', '878796324354', 'gram sevak', '2022-12-5', 'yes', '123'),
-(3, 'S K Desai', '8937589324', 'kirti nagar', '987476987123', 'member', '04-02-2022', 'yes', '123');
+INSERT INTO `authority` (`aid`, `aname`, `phone`, `address`, `addharno`, `designation`, `workfrom`, `workstill`, `password`, `alevel`) VALUES
+(1, 'S P Pote', '9755521222', 'RSP nagar', '467916482763', 'Gram sevak', '0000-00-00', 'no', '123', 3),
+(2, 'Anushka', '8542479843', 'rk colony', '878796324354', 'gram sevak', '2022-12-05', 'yes', '123', 3),
+(3, 'S K Desai', '8937589324', 'kirti nagar', '987476987123', 'member', '0000-00-00', 'yes', '123', 3);
 
 -- --------------------------------------------------------
 
@@ -119,7 +120,7 @@ INSERT INTO `authoritywards` (`aid`, `wid`) VALUES
 --
 
 CREATE TABLE `complaintdetailstatus` (
-  `aid` int(11) NOT NULL,
+  `alevel` int(11) NOT NULL,
   `cdid` int(11) NOT NULL,
   `status` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -146,7 +147,7 @@ CREATE TABLE `complaintnavigation` (
 CREATE TABLE `complaints` (
   `cid` int(11) NOT NULL,
   `ctype` varchar(30) DEFAULT NULL,
-  `daystocomplete` int(11) DEFAULT NULL
+  `daystocomplete` int(11) DEFAULT 7
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -171,12 +172,12 @@ CREATE TABLE `complaintsdetail` (
   `cid` int(11) DEFAULT NULL,
   `wid` int(11) DEFAULT NULL,
   `details` varchar(200) DEFAULT NULL,
-  `registereddate` varchar(10) DEFAULT NULL,
-  `tobeCompleted` varchar(10) DEFAULT NULL,
-  `astatus` varchar(20) DEFAULT 'Ongoing',
-  `aDateofUpdate` varchar(10) DEFAULT NULL,
+  `registereddate` date DEFAULT NULL,
+  `tobeCompleted` int(10) DEFAULT 7,
+  `astatus` varchar(20) DEFAULT 'Registered',
+  `aDateofUpdate` date DEFAULT NULL,
   `uack` varchar(10) DEFAULT NULL,
-  `ackDate` varchar(10) DEFAULT NULL
+  `ackDate` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -184,24 +185,10 @@ CREATE TABLE `complaintsdetail` (
 --
 
 INSERT INTO `complaintsdetail` (`cdid`, `uid`, `cid`, `wid`, `details`, `registereddate`, `tobeCompleted`, `astatus`, `aDateofUpdate`, `uack`, `ackDate`) VALUES
-(1, 1, 3, 3, 'no doctor available', '15-10-2022', '21-10-2022', 'pending', '15-10-2022', 'pending', '15-10-2022'),
-(2, 4, 2, 2, 'electricity supply stopped', '10-09-2022', '12-09-2022', 'new', '10-09-2022', 'pending', '10-09-2022'),
-(3, 1, 4, 3, 'no teacher available', '10-09-2022', '16-09-2022', 'new', '10-09-2022', 'pending', '10-09-2022'),
-(4, 1, 4, 3, 'improper benches', '22-11-2022', '29-11-2022', 'completed', '28-11-2022', 'completed', '29-11-2022'),
-(5, 4, 3, 2, 'insufficient equipment', '30-11-2022', '3-12-2022', 'pending', '30-11-2022', 'pending', '30-11-2022'),
-(6, 4, 3, 2, 'insufficient equipment', '01-12-2022', '3-12-2022', 'pending', '01-12-2022', 'pending', '01-12-2022');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `migrations`
---
-
-CREATE TABLE `migrations` (
-  `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+(1, 1, 3, 3, 'no doctor available', '2022-12-08', 21, 'Ongoing', '2022-12-15', 'pending', '2022-12-12'),
+(2, 4, 2, 2, 'electricity supply stopped', '2022-12-22', 12, 'Registered', '2022-12-22', 'pending', '2022-12-22'),
+(3, 1, 4, 3, 'no teacher available', '2022-10-10', 16, 'Complete', '2022-10-20', 'completed', '2022-10-21'),
+(4, 1, 4, 3, 'improper benches', '2022-12-20', 2, 'Registered', '2022-12-21', 'pending', '2022-12-21');
 
 -- --------------------------------------------------------
 
@@ -304,12 +291,6 @@ ALTER TABLE `complaintsdetail`
   ADD KEY `wid` (`wid`);
 
 --
--- Indexes for table `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `userss`
 --
 ALTER TABLE `userss`
@@ -321,16 +302,6 @@ ALTER TABLE `userss`
 --
 ALTER TABLE `wards`
   ADD PRIMARY KEY (`wid`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

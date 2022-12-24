@@ -11,7 +11,7 @@
                             <div class="sb-sidenav-menu-heading">Data</div>
                             <a class="nav-link"  href="http://127.0.0.1:8000/villageResidents">
                             <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                            Residents Records 
+                                Village Residents Records 
                             </a>
                             
                             <a class="nav-link" href="http://127.0.0.1:8000/authorityRecords">

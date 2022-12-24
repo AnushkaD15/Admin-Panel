@@ -1,18 +1,22 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+
+</style>
 
 
-<section class="intro">
-  <div class="bg-image h-100" style="background-color: #f5f7fa;">
-    <div class="mask d-flex align-items-center h-100">
-      <div class="container">
-      <h1 class="mt-4">Complaint Record</h1>
-        <div class="row justify-content-center">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-body p-0">
-                <div class="table-responsive table-scroll" data-mdb-perfect-scrollbar="true" style="position: relative; height: 700px">
-                  <table class="table table-striped mb-0">
-                    <thead style="background-color: #0abef0;">
-                      <tr>
+<div class="container mt-5 px-2">
+  <h2>Complaint Record</h2>
+    
+    <div class="table-responsive">
+    <table class="table table-responsive">
+        
+      <thead style="background-color: #0abef0;">
+            <tr>
+		<tr>
                         <th scope="col">Complaint ID </th>
                         <th scope="col">Complaintant ID</th>
                         <th scope="col">Complaint Type </th>
@@ -25,9 +29,9 @@
                         <th scope="col">Complaintant Acknowledgement</th>
                         <th scope="col">Acknowledgement Date by Complaintant</th>
                       </tr>
-                    </thead>
-                    <tbody>
-                    @foreach ( $complaintsDetails as $cmprec)
+      </thead>
+      <tbody>
+            @foreach ( $complaintsDetails as $cmprec)
                         <tr>    
                         <th>{{$cmprec->cdid }}</th>
                         <th>{{$cmprec->uid }}</th>
@@ -42,23 +46,9 @@
                         <th>{{$cmprec->ackDate}}</th>
                         </tr>
                     @endforeach
-                 
-                    
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+      </tbody>
+    </table>
+  
   </div>
-</section>
-
-
-
-
-
-
-
+    
+</div>

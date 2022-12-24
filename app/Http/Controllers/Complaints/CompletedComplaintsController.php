@@ -14,6 +14,8 @@ class CompletedComplaintsController extends Controller
     {
         //show complaints where authority status is completed
         $cmp = DB::table('complaintsdetail')
+                        ->join('userss', 'userss.uid', '=', 'complaintsdetail.uid')
+                        ->join('wards', 'wards.wid', '=', 'complaintsdetail.wid')
                         ->where('astatus', '=','Complete')
                         ->get();
                         
