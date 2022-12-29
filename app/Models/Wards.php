@@ -13,5 +13,6 @@ class Wards extends Model
     public $primaryKey ="wid";
     public $inrementing =true;
 
-    protected $fillable = ['wid', 'ward'];
+    protected $fillable = ['wid', 'ward','wardaddress'];
+
 }

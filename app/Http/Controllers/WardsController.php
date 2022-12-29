@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Wards;
 use Illuminate\Support\Facades\View;
 
+
 class WardsController extends Controller
 {
     //add data in database 
@@ -50,18 +51,21 @@ class WardsController extends Controller
 
     public function  addWard(Request $request)
     {
-        echo "6, ";
-        die();
-        $this -> validate($request, [
-                'wid' => 'required',
-                'ward' => 'required'
+        
+        $this->validate($request, [
+                'ward' => 'required',
+                'wardaddress' => 'required'
         ]);
-        $ward =  new Wards([
-            'wid' => $request->get('required'),
-            'ward' => $request->get('required')
-        ]);
-        $ward -> save();
-        return redirect()->route('wards.index')->with('success', 'Ward  Added successfully.');
+        // $ward =  new Wards([
+        //     'wid' => $request->get('required'),
+        //     'ward' => $request->get('required')
+        // ]);
+
+        $wards = new Wards();
+        $wards->ward = $request['ward'];
+        $wards->wardaddress  = $request['wardaddress'];
+        $wards->save();
+       return redirect()->route('wards.index')->with('success', 'Ward  Added Successfully.');
 
     } 
 

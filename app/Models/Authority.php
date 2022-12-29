@@ -8,7 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Authority extends Model
 {
     use HasFactory;
-    protected $table = "authority";
-    protected $fillable = ['aname', 'phone', 'address','addharno','designation', 'password'];
-    public $timestamps = "false";
+    public $table = "authority";
+    public $primaryKey = "aid";
+    public $inrementing =true;
+    protected $fillable = ['aid','aname', 'phone', 'address','addharno','designation', 'password'];
+    public $timestamps = false;
 }

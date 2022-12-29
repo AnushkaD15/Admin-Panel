@@ -15,9 +15,11 @@ use App\Http\Controllers\ComplaintDetailsController;
 use App\Http\Controllers\WardsController;
 use App\Http\Controllers\ComplaintTypeController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+//Route::get('/','HomeController@index')->name('welcome');
+Route::get('/',[App\Http\Controllers\HomeController::class, 'index']);
 
 Auth::routes();
 
@@ -73,6 +75,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::post("addWards",[WardsController::class, 'addWard']);
 
+Route::post("addComplaintType",[ComplaintTypeController::class, 'addComplaintType']);
+
+Route::post("addAuthority",[AuthorityController::class, 'addAuthority']);
+
+Route::post("assignWardsToAuthority",[AuthorityWardsController::class, 'assignWardsToAuthority']);
+
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
 
 Route::prefix('register')-> group(function(){
@@ -80,3 +88,15 @@ Route::prefix('register')-> group(function(){
 });
 
 Route::resource('wards', WardsController::class);
+
+Route::resource('complaintType', ComplaintTypeController::class);
+
+Route::resource('authority', AuthorityController::class);
+
+Route::resource('authorityWards', AuthorityWardsController::class);
+
+Route::get('complaintType', [ComplaintTypeController::class, 'index']);
+
+Route::get('authority', [AuthorityController::class, 'index']);
+
+

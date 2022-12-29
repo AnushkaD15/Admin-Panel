@@ -2,18 +2,6 @@
 
 @section('content')
 
-<!-- @if ($message = Session::get('success'))
-
-<div class="alert alert-success">
-    {{ $message }}
-</div>
-@else
-<div class="alert alert-danger">
-    {{ $message }}
-    
-@endif -->
-
-
 
 <div class="container-fluid px-4">
                         <h1 class="mt-4">Add Wards</h1>
@@ -35,7 +23,7 @@
            <form method="post"  action="{{ url ('addWards')}}" enctype="multipart/form-data">
                         {{ csrf_field()}}
            
-            <div class="form-row col-md-8">
+             <div class="form-row col-md-8">
                                 <div class="form-group col-md-8">
                                 <label for="inputWard">Ward</label>
                                 <input type="text" name="ward" class="form-control" id="inputWard" placeholder="Ward Number">
@@ -45,7 +33,7 @@
 
                             <div class="form-group col-md-8">
                                 <label for="inputAddress">Address</label>
-                                <input type="text" name="description" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                <input type="text" name="wardaddress" class="form-control" id="inputAddress" placeholder="1234 Main St">
                             </div>
                                                         
                             <br>

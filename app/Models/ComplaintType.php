@@ -11,4 +11,9 @@ class ComplaintType extends Model
     
     public $timestamps = false;
     public $table = "complaints";
+    
+    public $primaryKey ="cid";
+    public $inrementing =true;
+
+    protected $fillable = ['cid', 'ctype','daystocomplete'];
 }

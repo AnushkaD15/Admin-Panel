@@ -39,7 +39,7 @@ Route::get("getComplaintDetailsByAID/{aid}", [ComplaintDetailsController::class,
 Route::post("addUser",[UsersController::class, 'addUser']);
 
 Route::post("addComplaintDetails",[ComplaintDetailsController::class, 'addComplaintDetails']);
-Route::post("addAuthority",[AuthorityController::class, 'addAuthority']);
+
 
 Route::post("updateUserDetails/{uid}",[UsersController::class, 'updateUser']);
 

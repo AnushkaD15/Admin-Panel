@@ -13,4 +13,21 @@ class ComplaintTypeController extends Controller
     {
         return view('admin.addComplaintType');
     }
+
+    public function addComplaintType(Request $request)
+    {
+        $this->validate($request, [
+            'ctype' => 'required',
+            'daystocomplete' => 'required'
+        ]);
+
+        $complainttype = new ComplaintType;
+        $complainttype->ctype = $request->get('ctype');
+        $complainttype->daystocomplete = $request->get('daystocomplete');
+        $complainttype->save();
+
+        return redirect()->route('complainttype.index')->with('success', 'Complaint Type Added Successfully.');
+    }
+
 }
+

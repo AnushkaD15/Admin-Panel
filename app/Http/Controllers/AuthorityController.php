@@ -9,10 +9,22 @@ use Illuminate\Support\Facades\View;
 
 class AuthorityController extends Controller
 {
-    public function addAuthority(Request $req)
+    public function addAuthority(Request $request)
     {
-        $authority = new Authority ;
-        $authority-> aid= $req ->aid;
+
+        $this->validate($request, [
+            'aname'=>'required',
+            'phone'=>'required',
+            'address'=>'required',
+            'addharno'=>'required',
+            'designation'=>'required',
+            'workfrom'=>'required',
+            'workstill'=>'required',
+            'password'=>'required',
+            'alevel'=>'required'
+        ]);
+
+        $authority = new Authority;
         $authority-> aname= $req ->aname;        
         $authority-> phone= $req ->phone;
         $authority-> address = $req ->address;
@@ -22,16 +34,9 @@ class AuthorityController extends Controller
         $authority-> workstill= $req ->workstill;
         $authority-> password = $req ->password;
         $authority-> alevel= $req ->alevel;
-        $result = $authority->save();
+        $authority->save();
 
-        if($result)
-        {
-            return ["result"=>'Data has been saved.'];
-        }
-        else
-        {
-            return ["result"=>'Operation failed.'];
-        }
+        return redirect()->route('/authority.index')->with('success', 'Authority Added Successfully.');
     }
 
     //get data from authority by id
